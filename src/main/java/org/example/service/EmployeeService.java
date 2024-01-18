@@ -5,7 +5,13 @@ import org.example.model.entity.Employee;
 
 import java.util.List;
 
+
 public interface EmployeeService {
+
+
+
+
+    Employee findById(Long id);
 
     List<Employee> getAllEmployees();
 
