@@ -39,7 +39,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+
     public Employee addEmployee(EmployeeDto employeeDto) {
         return employeeRepository.save(new Employee(employeeDto));
     }
+
+    @Override
+    public Employee updateEmployee(Long id){ return employeeRepository.save(findById(id));}
+
+    @Override
+    public void deleteEmployee(Long id){ employeeRepository.delete(findById(id));}
 }

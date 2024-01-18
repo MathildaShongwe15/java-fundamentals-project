@@ -17,17 +17,17 @@ import java.util.List;
 
 public class EmployeeController {
     @GetMapping("/{id}")
-    public ResponseEntity<Employee> getEmployeeId(@PathVariable Long id){
+    public ResponseEntity<Employee> getEmployeeId(@PathVariable Long id) {
 
-        try{
+        try {
             Employee employee = employeeService.findById(id);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-        catch(EmployeeNotFoundException ex){
+        } catch (EmployeeNotFoundException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 
         }
     }
+
     @Autowired
     private EmployeeService employeeService;
 
@@ -42,4 +42,33 @@ public class EmployeeController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
+        try {
+            return ResponseEntity.ok("deleted successfully");
+
+        } catch (EmployeeNotFoundException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+        }
+
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> UpdateEmployee(@RequestBody EmployeeDto employeeDto) {
+        try {
+
+            Employee savedEmployee = employeeService.addEmployee(employeeDto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
+
+        } catch (EmployeeNotFoundException ex) {
+
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+
+        }
+
+    }
+
+
 }

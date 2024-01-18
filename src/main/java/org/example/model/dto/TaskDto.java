@@ -3,21 +3,15 @@ package org.example.model.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.enums.Status;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class EmployeeDto {
+public class TaskDto  {
 
-
-
-    private String email;
-
-    private String firstName;
-
-    private String lastName;
-
-    private String position;
+    private Status status;
+    private String description;
 
 
 

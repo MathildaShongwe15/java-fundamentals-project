@@ -2,27 +2,23 @@ package org.example.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.enums.Status;
 import org.example.model.dto.EmployeeDto;
+import org.example.model.dto.TaskDto;
+
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 public class Task {
     @ManyToOne
     @JoinColumn(name = "employee_Id")
     private Employee employee;
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 
     private Status status;
-
 
 
 
@@ -33,4 +29,9 @@ public class Task {
     @Column
     private String description;
 
+    public Task(TaskDto taskDto) {
+         this.status = taskDto.getStatus();
+         this.description = taskDto.getDescription();
+
+    }
 }
