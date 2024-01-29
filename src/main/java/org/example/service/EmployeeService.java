@@ -1,5 +1,6 @@
 package org.example.service;
 
+import lombok.AllArgsConstructor;
 import org.example.model.dto.EmployeeDto;
 import org.example.model.entity.Employee;
 

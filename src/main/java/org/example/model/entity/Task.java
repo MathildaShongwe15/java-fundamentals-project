@@ -1,6 +1,7 @@
 package org.example.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import org.example.model.dto.TaskDto;
 @Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 public class Task {
     @ManyToOne
     @JoinColumn(name = "employee_Id")
@@ -19,8 +21,6 @@ public class Task {
 
 
     private Status status;
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

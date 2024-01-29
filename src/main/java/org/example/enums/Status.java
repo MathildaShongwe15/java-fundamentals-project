@@ -1,5 +1,8 @@
 package org.example.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Status {
 
     NEW("New"),
@@ -10,7 +13,5 @@ public enum Status {
     Status(String label) {
         this.label = label;
     }
-    public String getlabel(){
 
-        return label;}
 }
